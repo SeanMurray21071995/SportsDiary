@@ -1,12 +1,11 @@
 package sportsDiary;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 
 public class JavaDataBaseConnector {
 
-	static private final String DBUrl ="jdbc:mysql://localhost/SporsDataBase";
+	static private final String DBUrl ="jdbc:mysql://localhost/mydb?useSSL=false";
 	
 	static private final String user ="root";
 	static private final String pass = "Password@1234";
@@ -17,9 +16,9 @@ public class JavaDataBaseConnector {
 	{
 		try 
 		{
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			con = DriverManager.getConnection(DBUrl,user,pass);
 			stat = con.createStatement();
-			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 		}
 		catch(SQLException sq)
 		{
@@ -43,7 +42,7 @@ public class JavaDataBaseConnector {
 	{
 		this.connect();
 		try {
-			stat.executeQuery(Statement);
+			stat.executeUpdate(Statement);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

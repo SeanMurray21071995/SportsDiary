@@ -23,7 +23,7 @@ public class TestJavaDataBaseConnector {
 	public void testRead() 
 	{
 		JavaDataBaseConnector jdbc = new JavaDataBaseConnector();
-		assertNotNull("didnt return the corect info from the database", jdbc.read("SELECT firstName From Customer WHERE firstName=test"));
+		assertNotNull("didnt return the corect info from the database", jdbc.read("SELECT firstName From Customer WHERE firstName='test'"));
 	}
 
 }
