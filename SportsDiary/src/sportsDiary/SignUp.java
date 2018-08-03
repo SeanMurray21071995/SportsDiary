@@ -1,20 +1,17 @@
 package sportsDiary;
 
 import java.sql.ResultSet;
-
+import java.sql.SQLException;
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 public class SignUp {
-	private String passwordFirstEntry;
-	private int mobileNumber;
-	private String emailAddress;
-	
-	
+	private String emailAddress; 
+	private int customerId;
+	private JavaDataBaseConnector jdbc;
 	public void signUpInsertCustomer(String firstName, String lastName, int mobileNumber, String email)
 	{
-		this.mobileNumber=mobileNumber;
 		this.emailAddress = email;
-		JavaDataBaseConnector jdbc= new JavaDataBaseConnector();
+		this.jdbc= new JavaDataBaseConnector();
 		jdbc.create("INSERT INTO customer (firstName,lastName,mobileNumber,emailAddress) VALUES ('"+firstName+"','"+lastName+"',"+mobileNumber+",'"+email+"');");
 		
 	}
@@ -22,15 +19,26 @@ public class SignUp {
 	{
 		if(passwordFirstEntry.equals(passwordSecondEntry))
 		{
-			JavaDataBaseConnector jdbc1 = new JavaDataBaseConnector();
-			ResultSet rs = jdbc1.read("SELECT customerId From customer WHERE firstName="+mobileNumber+"AND emailAddress='"+emailAddress+"';");
-			
-			JavaDataBaseConnector jdbc2= new JavaDataBaseConnector();
-			jdbc2.create("INSERT INTO account (username,password) VALUES ('"+username+"','"+passwordFirstEntry+"')");
+			this.jdbc= new JavaDataBaseConnector();
+			ResultSet rs = jdbc.read("SELECT customerId From customer WHERE emailAddress='"+emailAddress+"';");
+			try {
+				
+				while(rs.next()) 
+				{
+					this.customerId = rs.getInt(0);
+					JavaDataBaseConnector jdbc2= new JavaDataBaseConnector();
+					jdbc2.create("INSERT INTO account (username,password,customerId) VALUES ('"+username+"','"+passwordFirstEntry+"',"+this.customerId+")");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				// maybe create a better exception to handle what would happen if try failed 
+			}
 		}
 		else
-		{
-			
+		{ 
+			this.jdbc= new JavaDataBaseConnector();
+			jdbc.delete("DELETE FROM customer WHERE customerId="+this.customerId+";");
+			//TODO create a method that handles what would happen if the passwords do not match. 
 		}
 	}
 }

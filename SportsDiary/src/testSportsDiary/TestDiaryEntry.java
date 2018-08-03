@@ -2,23 +2,38 @@ package testSportsDiary;
 
 import static org.junit.Assert.*;
 
+import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 
 import sportsDiary.DiaryEntry;
 
 public class TestDiaryEntry {
-	DiaryEntry De;
+	DiaryEntry de;
 	@Before
 	public void createDiaryEntry() 
 	{
-		De=new DiaryEntry();
+		de=new DiaryEntry();
+		de.setDiaryEntryId(1);
+		de.setSatement("test");
 	}
 	@Test
 	public void testDiaryEntryGetId() 
 	{
-		De.setDiaryEntryId(1);
-		assertEquals("didn't get id",De.getDiaryEntryId() ,1);
+		de.setDiaryEntryId(1);
+		assertEquals("didn't get id",de.getDiaryEntryId() ,1);
+	}
+	@Test
+	public void testDiaryEntry() 
+	{
+		de.setSatement("test");
+		assertEquals("didn't get statement",de.getSatement(), "test");
+	}
+	@Test
+	public void testToJSONObject() 
+	{
+		JSONObject j = de.toJSONObject();
+		assertNotNull("return null",j.get("1"));
 	}
 
 }

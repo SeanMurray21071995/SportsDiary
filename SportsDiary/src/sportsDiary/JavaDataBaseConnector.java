@@ -6,16 +6,15 @@ import java.sql.*;
 public class JavaDataBaseConnector {
 
 	static private final String DBUrl ="jdbc:mysql://localhost/mydb?useSSL=false";
-	
 	static private final String user ="root";
-	static private final String pass = "Password@1234";
+	static private final String pass = "Password";
 	private Connection con;
 	private Statement stat;
 	
 	public void connect() 
 	{
 		try 
-		{
+		{ 
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			con = DriverManager.getConnection(DBUrl,user,pass);
 			stat = con.createStatement();
@@ -34,7 +33,9 @@ public class JavaDataBaseConnector {
 		try {
 			stat.close();
 			con.close();
-		} catch (SQLException e) {
+		}
+		catch (SQLException e) 
+		{
 			e.printStackTrace();
 		}
 	}
@@ -64,7 +65,7 @@ public class JavaDataBaseConnector {
 	{
 		this.connect();
 		try {
-			stat.executeQuery(Statement);
+			stat.executeUpdate(Statement);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -74,7 +75,7 @@ public class JavaDataBaseConnector {
 	{
 		this.connect();
 		try {
-			stat.executeQuery(statement);
+			stat.executeUpdate(statement);
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
