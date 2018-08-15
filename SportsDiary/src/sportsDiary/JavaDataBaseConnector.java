@@ -35,13 +35,13 @@ public class JavaDataBaseConnector {
 			con.close();
 		}
 		catch (SQLException e) 
-		{
+		{ 
 			e.printStackTrace();
 		}
 	}
 	public void create(String Statement)
 	{
-		this.connect();
+		this.connect(); 
 		try {
 			stat.executeUpdate(Statement);
 		} catch (SQLException e) {

@@ -20,15 +20,15 @@ public class SignUp {
 		if(passwordFirstEntry.equals(passwordSecondEntry))
 		{
 			this.jdbc= new JavaDataBaseConnector();
-			ResultSet rs = jdbc.read("SELECT customerId From customer WHERE emailAddress='"+emailAddress+"';");
+			ResultSet rs = jdbc.read("SELECT idCustomer From customer WHERE emailAddress='"+emailAddress+"';");
 			try {
-				
 				while(rs.next()) 
 				{
 					this.customerId = rs.getInt(0);
-					JavaDataBaseConnector jdbc2= new JavaDataBaseConnector();
-					jdbc2.create("INSERT INTO account (username,password,customerId) VALUES ('"+username+"','"+passwordFirstEntry+"',"+this.customerId+")");
+					this.jdbc= new JavaDataBaseConnector();
+					jdbc.create("INSERT INTO account (username,password,idCustomer) VALUES ('"+username+"','"+passwordFirstEntry+"',"+this.customerId+")");
 				}
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 				// maybe create a better exception to handle what would happen if try failed 
@@ -37,7 +37,7 @@ public class SignUp {
 		else
 		{ 
 			this.jdbc= new JavaDataBaseConnector();
-			jdbc.delete("DELETE FROM customer WHERE customerId="+this.customerId+";");
+			jdbc.delete("DELETE FROM customer WHERE idCustomer="+this.customerId+";");
 			//TODO create a method that handles what would happen if the passwords do not match. 
 		}
 	}

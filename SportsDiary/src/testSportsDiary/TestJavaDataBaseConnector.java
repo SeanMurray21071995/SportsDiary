@@ -21,7 +21,7 @@ public class TestJavaDataBaseConnector {
 	public void testCreat() 
 	{
 		assertNotNull("the entry wasn't their",jdbc.read("SELECT firstName From customer WHERE firstName='test';"));
-	}
+	} 
 	@Test
 	public void testRead() 
 	{
@@ -41,7 +41,7 @@ public class TestJavaDataBaseConnector {
 		jdbc.delete("DELETE FROM customer WHERE firstName ='test'");
 		System.out.println(jdbc.read("SELECT *FROM customer;"));
 		//assertNull("The entry wasn't deleted", jdbc.read("SELECT *FROM customer;"));
-
+ 
 	}
 
 
