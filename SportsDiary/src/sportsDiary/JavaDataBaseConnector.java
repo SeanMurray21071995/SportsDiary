@@ -1,6 +1,7 @@
 package sportsDiary;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 
 public class JavaDataBaseConnector {
@@ -47,14 +48,38 @@ public class JavaDataBaseConnector {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		this.closeConnection();
+		this.closeConnection(); 
 	}
-	public ResultSet read(String Statement) 
+	public ArrayList<Object> read(String Statement, String dataType) 
 	{
 		this.connect();
 		try(ResultSet re = stat.executeQuery(Statement);) {
+			Object info = new Object();
+			ArrayList<Object> results = new ArrayList<>();
+			while (re.next())
+			{
+				ResultSetMetaData rsmd = re.getMetaData();
+				switch(dataType)
+				{
+					case "account":
+						info = new Account(0,0,0,"","");
+						for(int i=1;i<=rsmd.getColumnCount();i++) 
+						{
+							((Account) info).imputResultData(rsmd.getColumnName(i),re.getObject(i));
+						}		
+						break;
+					case "customer":
+						info=new Customer(0,"","",0,"");
+						for(int i=1;i<=rsmd.getColumnCount();i++) 
+						{
+							((Customer)info).imputResultData(rsmd.getColumnName(i),re.getObject(i));
+						}
+						break;
+				}
+				results.add(info);
+			}
 			this.closeConnection();
-			return re;
+			return results;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -9,13 +9,35 @@ public class Customer {
 	private String emailAddress;
 	
 	public Customer(int customerId,String firstName, String lastName, int mobileNumber, String emailAddress) 
-	{
+	{ 
 		this.setCustomerId(customerId);
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
 		this.setMobilenNumber(mobileNumber);
 		this.setEmailAddress(emailAddress);
 	}
+	public void imputResultData(String columnName, Object input) 
+	{
+		switch(columnName){
+		case "firstName":
+			this.setFirstName((String)input);
+			break;
+		case "idCustomer":
+			this.setCustomerId((int)input);
+			break;
+		case "lastName":
+			this.setLastName((String)input);
+			break;
+		case "mobileNumber":
+			this.setMobilenNumber((int)input);
+			break;
+		case "emailAddress":
+			this.setEmailAddress((String)input);
+			break;
+		}
+	}
+	
+	
 	public int getCustomerId() {
 		return customerId;
 	}

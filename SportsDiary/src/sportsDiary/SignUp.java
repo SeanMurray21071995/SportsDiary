@@ -2,6 +2,8 @@ package sportsDiary;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 public class SignUp {
@@ -20,18 +22,15 @@ public class SignUp {
 		if(passwordFirstEntry.equals(passwordSecondEntry))
 		{
 			this.jdbc= new JavaDataBaseConnector();
-			ResultSet rs = jdbc.read("SELECT idCustomer From customer WHERE emailAddress='"+emailAddress+"';");
-			try {
-				while(rs.next()) 
-				{
-					this.customerId = rs.getInt(0);
-					this.jdbc= new JavaDataBaseConnector();
-					jdbc.create("INSERT INTO account (username,password,idCustomer) VALUES ('"+username+"','"+passwordFirstEntry+"',"+this.customerId+")");
-				}
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-				// maybe create a better exception to handle what would happen if try failed 
+			ArrayList<Object> results = jdbc.read("SELECT idCustomer From customer WHERE emailAddress='"+emailAddress+"';","customer");
+			if(results.size()>1){
+				//TODO create a method that handles what would happen if there is more that one itream in the result set.
+			}
+			else {
+				Customer tmp = (Customer)results.get(0);
+				this.customerId=tmp.getCustomerId();
+				this.jdbc= new JavaDataBaseConnector();
+				jdbc.create("INSERT INTO account (username,password,idCustomer,idCalender) VALUES ('"+username+"','"+passwordFirstEntry+"',"+this.customerId+","+1+")");
 			}
 		}
 		else

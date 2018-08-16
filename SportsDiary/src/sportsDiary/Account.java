@@ -1,5 +1,7 @@
 package sportsDiary;
 
+import java.sql.ResultSetMetaData;
+
 public class Account {
 	
 	private int accountId;
@@ -16,6 +18,27 @@ public class Account {
 			this.setPassword(password);
 			this.setUsername(username); 
 	}
+	public void imputResultData(String columnName, Object input) 
+	{
+		switch(columnName){
+		case "idAccount":
+			this.setAccountId((int)input);
+			break;
+		case "idCustomer":
+			this.setCustomerId((int)input);
+			break;
+		case "idCalender":
+			this.setCalenderId((int)input);
+			break;
+		case "password":
+			this.setPassword((String)input);
+			break;
+		case "username":
+			this.setUsername((String)input);
+			break;
+		}
+	}
+	
 	public int getAccountId() {
 		return accountId;
 	}
@@ -47,6 +70,4 @@ public class Account {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-
 }

@@ -39,5 +39,10 @@ public class TestAccount {
 	{
 		assertEquals("didn't get username",a.getUsername(),"username");
 	}
-
+	@Test
+	public void testImputResultData() 
+	{
+		a.imputResultData("idCustomer",1);
+		assertEquals("didn't work",a.getCustomerId(),1);
+	}
 }
