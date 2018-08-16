@@ -30,3 +30,4 @@ public class DiaryEntry {
 		return jsob;
 	}
 }
+ 

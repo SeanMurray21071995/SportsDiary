@@ -62,14 +62,14 @@ public class JavaDataBaseConnector {
 				switch(dataType)
 				{
 					case "account":
-						info = new Account(0,0,0,"","");
+						info = new Account(-1,-1,-1,"null","null");
 						for(int i=1;i<=rsmd.getColumnCount();i++) 
 						{
 							((Account) info).imputResultData(rsmd.getColumnName(i),re.getObject(i));
 						}		
 						break;
 					case "customer":
-						info=new Customer(0,"","",0,"");
+						info=new Customer(-1,"null","null",-1,"null");
 						for(int i=1;i<=rsmd.getColumnCount();i++) 
 						{
 							((Customer)info).imputResultData(rsmd.getColumnName(i),re.getObject(i));
@@ -90,7 +90,7 @@ public class JavaDataBaseConnector {
 	{
 		this.connect();
 		try {
-			stat.executeUpdate(Statement);
+			stat.executeUpdate(Statement); 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
