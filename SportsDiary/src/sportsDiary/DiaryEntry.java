@@ -1,5 +1,6 @@
 package sportsDiary;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DiaryEntry {
@@ -26,7 +27,12 @@ public class DiaryEntry {
 	{
 		JSONObject jsob = new JSONObject();
 		String key = Integer.toString(DiaryEntryId);
-		jsob.put(key, statment);
+		try {
+			jsob.put(key, statment);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return jsob;
 	}
 }

@@ -2,6 +2,7 @@ package testSportsDiary;
 
 import static org.junit.Assert.*;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +34,12 @@ public class TestDiaryEntry {
 	public void testToJSONObject() 
 	{
 		JSONObject j = de.toJSONObject();
-		assertNotNull("return null",j.get("1"));
+		try {
+			assertNotNull("return null",j.get("1"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

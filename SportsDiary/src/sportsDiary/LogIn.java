@@ -7,15 +7,15 @@ public class LogIn {
 	private String username;
 	private String password;
 	
-	public void processData(String username, String password)
+	public boolean processData(String username, String password)
 	{
 		if(this.getAccount().getAccountId()==-1) 
 		{
-			
+			return false;
 		}
 		else
 		{
-			
+			return true;
 		}
 	}
 	private Account getAccount() 
