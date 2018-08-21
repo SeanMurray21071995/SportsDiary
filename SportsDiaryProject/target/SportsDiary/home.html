@@ -1,0 +1,41 @@
+<!Doctype html>
+<head>
+<title>Sports Diary</title>
+<link rel = "stylesheet" href="resources/css/sportsDiary.css">
+<script src="sportsDiary.js"></script>
+<script src="calendar.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="navigation">
+<input type="button" class="button" value="Home" onclick="returnToHomePage()"></input>
+<div class="dropdown">
+<button onClick="dropDown()" class="dropbtn">Settings</button>  
+<div id="settingsDropDown" class="dropdown-content">
+<input type="button" onClick="" value="Log Out"></input>
+</div>
+</div>
+</div>
+<div class="calendar">
+<div class = "headerCalendar">
+<ul>
+<li><input type="button" class="buttonCal" value="<" onclick="get_previous_month()"></input></li>
+<li id ="month"></li>
+<li><input type="button" class="buttonCal" value=">" onclick="get_next_month()"></input></li>
+</ul>
+</div>
+<div class="tableContain">
+<table class="calenderTable" id="myCalender">
+<tr class="header" id="day_names">
+<th id="Monday">Monday</th>
+<th id="Tuesday">Tuesday</th>
+<th id="Wedensday">Wedensday</th>
+<th id="Thursday">Thursday</th>
+<th id="Friday">Friday</th>
+<th id="Saterday">Saterday</th>
+<th id="Sunday">Sunday</th>
+</tr>
+</table>
+</div>
+</div>
+</body>
