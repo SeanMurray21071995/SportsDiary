@@ -19,7 +19,7 @@ public class Customer {
 	public void imputResultData(String columnName, Object input) 
 	{
 		switch(columnName){
-		case "firstName":
+		case "firstName": 
 			this.setFirstName((String)input);
 			break;
 		case "idCustomer":
