@@ -29,7 +29,6 @@ window.onclick = function(event) {
 function logIn()
 {
 	var urlPath = "http://localhost:8080/SportsDiary/sd/web/logIn/"+document.getElementById('username').value+"/"+document.getElementById('password').value+"";
-	console.log(urlPath);
 	var request = new XMLHttpRequest();
 	request.open('GET',urlPath);
 	request.responseType='json';
@@ -40,15 +39,38 @@ function logIn()
 		var info = request.response;
 		if(info.result =="true")
 		{
-			returnToHome();
+			returnToHomePage();
 		}
 		else if(info.result =="false")
 		{
-			returnToHome();
+			alert("username or password was incorect");
 		}
 		else
 		{
-			returnToHome();
+			returnToHomePage();
 		}
 	}
+}
+function createAccount()
+{
+	var urlPathCustomer = "http://localhost:8080/SportsDiary/sd/web/createCustomer";
+	if(document.getElementById('password').value!=document.getElementById('passwordReEntered').value)
+	{
+		alert("passwords do not match");
+	}
+	else{
+	var dataCustomer = JSON.stringify({"customerId":1,"firstName":document.getElementById('firstName').value,"lastName":document.getElementById('secondsName').value,"mobileNumber":parseInt(document.getElementById('mobileNumber').value),"emailAddress":document.getElementById('emailAddress').value})
+	console.log(dataCustomer);
+	var request1 = new XMLHttpRequest();
+	request1.open('POST',urlPathCustomer,true);
+	request1.setRequestHeader('Content-Type', 'application/json');
+	request1.send(dataCustomer);
+	var urlsPathAccount="http://localhost:8080/SportsDiary/sd/web/createAccount";
+	var dataAccount = JSON.stringify({"username":document.getElementById('username').value,"password":document.getElementById('password').value});
+	var request2 = new XMLHttpRequest();
+	request2.open('POST',urlPathCustomer,true);
+	request2.setRequestHeader('Content-Type', 'application/json');
+	request2.send(dataAccount);
+	//returnToHomePage();
+}
 }

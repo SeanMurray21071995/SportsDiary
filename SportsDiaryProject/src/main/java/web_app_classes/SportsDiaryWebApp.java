@@ -1,13 +1,17 @@
 package web_app_classes;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import org.json.JSONObject;
 
+import sportsDiary.Account;
+import sportsDiary.Customer;
 import sportsDiary.LogIn;
+import sportsDiary.SignUp;
 
 @Path("/web")
 public class SportsDiaryWebApp {
@@ -27,4 +31,22 @@ public class SportsDiaryWebApp {
 			return "{\"result\":\"false\"}";
 		}
 	}
+	
+	@POST
+	@Path("/createCustomer")
+	public void createCustomer(Customer c) 
+	{
+		System.out.println(c.getFirstName()+" "+c.getLastName()+" "+c.getMobileNumber()+" "+c.getEmailAddress());
+		SignUp su = new SignUp();
+		su.signUpInsertCustomer(c.getFirstName(), c.getLastName(), c.getMobileNumber(), c.getEmailAddress());
+	}
+	
+	@POST
+	@Path("/createAccount")
+	public void createAccount(Account a) 
+	{
+		SignUp su = new SignUp();
+		su.SignUpAccountInsert(a.getUsername(), a.getPassword());
+	}
+	
 }

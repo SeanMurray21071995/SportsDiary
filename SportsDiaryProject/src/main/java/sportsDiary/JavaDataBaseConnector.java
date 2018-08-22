@@ -53,9 +53,9 @@ public class JavaDataBaseConnector {
 	public ArrayList<Object> read(String Statement, String dataType) 
 	{
 		this.connect();
+		ArrayList<Object> results = new ArrayList<>();
 		try(ResultSet re = stat.executeQuery(Statement);) {
 			Object info = new Object();
-			ArrayList<Object> results = new ArrayList<>();
 			while (re.next())
 			{
 				ResultSetMetaData rsmd = re.getMetaData();
@@ -84,7 +84,7 @@ public class JavaDataBaseConnector {
 			e.printStackTrace();
 		}
 		this.closeConnection();
-		return null;
+		return results;
 	}
 	public void update(String Statement) 
 	{

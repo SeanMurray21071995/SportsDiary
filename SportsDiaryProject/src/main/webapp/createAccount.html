@@ -2,16 +2,19 @@
 <head>
 <title>Sports Diary</title>
 <link rel = "stylesheet" href="resources/css/sportsDiary.css">
+<script src="sportsDiary.js"></script>
 </head>
 <body>
 <div class="signIn">
-<input type="text" placeholder="first name" class="inputField"></input><br>
-<input type="text" placeholder="last name" class="inputField"></input><br>
-<input type="text" placeholder="mobile number" class="inputField"></input><br>
-<input type="text" placeholder="email Address" class="inputField"></input><br>
-<input type="text" placeholder="username" class="inputField"></input><br>
-<input type="text" placeholder="password" class="inputField"><br>
-<input type="text" placeholder="re-enter Password" class="inputField"></input><br>
-<input type="button" value="Create Account" class="button"></input>
+<form id="accountForm">
+<input id="firstName" type="text" placeholder="first name" class="inputField"></input><br>
+<input id="secondsName" type="text" placeholder="last name" class="inputField"></input><br>
+<input id="mobileNumber" type="number" placeholder="mobile number" class="inputField"></input><br>
+<input id="emailAddress" type="text" placeholder="email Address" class="inputField"></input><br>
+<input id="username" type="text" placeholder="username" class="inputField"></input><br>
+<input id="password" type="text" placeholder="password" class="inputField"><br>
+<input id="passwordReEntered" type="text" placeholder="re-enter Password" class="inputField"></input><br>
+<input type="button" value="Create Account" class="button" onClick="createAccount()"></input>
+</form>
 </div>
 </body>

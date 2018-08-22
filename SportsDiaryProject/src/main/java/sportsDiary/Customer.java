@@ -5,7 +5,7 @@ public class Customer {
 	private int customerId;
 	private String firstName;
 	private String lastName;
-	private int mobilenNumber;
+	private int mobileNumber;
 	private String emailAddress;
 	
 	public Customer(int customerId,String firstName, String lastName, int mobileNumber, String emailAddress) 
@@ -13,7 +13,7 @@ public class Customer {
 		this.setCustomerId(customerId);
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
-		this.setMobilenNumber(mobileNumber);
+		this.setMobileNumber(mobileNumber);
 		this.setEmailAddress(emailAddress);
 	}
 	public void imputResultData(String columnName, Object input) 
@@ -29,7 +29,7 @@ public class Customer {
 			this.setLastName((String)input);
 			break;
 		case "mobileNumber":
-			this.setMobilenNumber((int)input);
+			this.setMobileNumber((int)input);
 			break;
 		case "emailAddress":
 			this.setEmailAddress((String)input);
@@ -47,8 +47,8 @@ public class Customer {
 	public String getLastName() {
 		return lastName;
 	}
-	public int getMobilenNumber() {
-		return mobilenNumber;
+	public int getMobileNumber() {
+		return mobileNumber;
 	}
 	public String getEmailAddress() {
 		return emailAddress;
@@ -63,8 +63,8 @@ public class Customer {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public void setMobilenNumber(int mobilenNumber) {
-		this.mobilenNumber = mobilenNumber;
+	public void setMobileNumber(int mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 	public void setEmailAddress(String emailAddress) {

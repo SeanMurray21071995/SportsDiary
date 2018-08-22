@@ -1,7 +1,7 @@
 package sportsDiary;
 
 import java.sql.ResultSetMetaData;
-
+ 
 public class Account {
 	
 	private int accountId;
@@ -38,7 +38,6 @@ public class Account {
 			break;
 		}
 	}
-	
 	public int getAccountId() {
 		return accountId;
 	}

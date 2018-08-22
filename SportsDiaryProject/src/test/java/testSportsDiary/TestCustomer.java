@@ -32,7 +32,7 @@ public class TestCustomer {
 	@Test
 	public void testCustomerMobileNumberGet() 
 	{
-		assertEquals("Didn't retrieve the customer mobile number", c.getMobilenNumber(), 077100000);
+		assertEquals("Didn't retrieve the customer mobile number", c.getMobileNumber(), 077100000);
 	}
 	@Test
 	public void testCustomerEmailAddressGet() 

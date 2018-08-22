@@ -9,6 +9,8 @@ public class LogIn {
 	
 	public boolean processData(String username, String password)
 	{
+		this.username=username;
+		this.password=password;
 		if(this.getAccount().getAccountId()==-1) 
 		{
 			return false;
@@ -22,6 +24,10 @@ public class LogIn {
 	{
 		this.jdbc=new JavaDataBaseConnector();
 		ArrayList<Object> id = jdbc.read("SELECT idAccount FROM account WHERE username ='"+username+"' AND password ='"+password+"';", "account");
+		if (id.size()==0) 
+		{
+			id.add(new Account(-1,-1,-1,"null","null"));
+		}
 		Account tmp = (Account)id.get(0);
 		return tmp;
 	}

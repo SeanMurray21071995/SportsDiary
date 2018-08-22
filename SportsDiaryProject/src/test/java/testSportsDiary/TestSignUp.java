@@ -33,17 +33,12 @@ public class TestSignUp {
 	public void testSingUpAccountInsert() 
 	{
 		String username=null;
-		this.su.SignUpAccountInsert("test123", "password", "password");
+		this.su.SignUpAccountInsert("test123", "password");
 		ArrayList<Object> tmp = jdbc.read("SELECT * FROM account WHERE username = 'test123'", "account");
 		Account acc = (Account)tmp.get(0);
 		username = acc.getUsername() ;
 		System.out.println(username);
 		assertNotNull("didn't return anything", username);
-	}
-	@Test
-	public void testPasswordsAreNotTheSame() 
-	{
-		
 	}
 	@After 
 	public void onCompletion() 

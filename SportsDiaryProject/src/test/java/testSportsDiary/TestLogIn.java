@@ -16,7 +16,7 @@ public class TestLogIn {
 		JavaDataBaseConnector jdbc = new JavaDataBaseConnector();
 		SignUp su = new SignUp();
 		su.signUpInsertCustomer("tes", "test", 0123456, "testest@test.com");
-		su.SignUpAccountInsert("tessie","password", "password");
+		su.SignUpAccountInsert("tessie","password");
 	}
 	
 	@Test
