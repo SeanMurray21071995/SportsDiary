@@ -1,0 +1,7 @@
+test_sports_diary\TestAccount.class
+test_sports_diary\TestSignUp.class
+test_sports_diary\TestDiaryEntry.class
+test_sports_diary\TestCalender.class
+test_sports_diary\TestCustomer.class
+test_sports_diary\TestLogIn.class
+test_sports_diary\TestJavaDataBaseConnector.class

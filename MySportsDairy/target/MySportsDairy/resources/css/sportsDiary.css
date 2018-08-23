@@ -1,0 +1,106 @@
+@charset "ISO-8859-1";
+
+
+body
+{
+font-family:Impact, fantasy;
+}
+.navigation
+{
+	background-color:#000000;
+	
+}
+.navigation .button
+{
+	float:left;
+}
+.button
+{
+width:300px;
+height:50px;
+border:none;
+margin:5px;
+color:#ffffff;
+background-color:#000000;
+}
+.buttonCal
+{
+width:300px;
+height:50px;
+border:none;
+margin:5px;
+background-color:#ff8533
+}
+.dropbtn
+{
+	width:300px;
+height:50px;
+border:none;
+margin:5px;
+color:#ffffff;
+background-color:#000000;
+}
+.signIn
+{
+		width:100%;
+		height:100%;
+		text-align:center;	
+}
+.inputField
+{
+width:300px;
+margin:5px;
+
+}
+
+.calenderTable 
+{
+	background-color:#f2f2f2;
+	width:70%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.calenderTable td
+{
+	border:1px solid;
+	height:50px;
+}
+.tableContain
+{
+display:table;
+width:100%;
+}
+.dropdown-content
+{
+	display:none;
+}
+.show
+{
+	display:block;
+}
+ul
+{
+	list-style-type:none;
+}
+.headerCalendar
+{
+	text-align:center;
+	width:70%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.headerCalendar ul
+{
+	margin-top:0px;
+	margin-bottom:0px;
+	background-color:#ff8533;
+}
+.headerCalendar ul li
+{
+	display:inline;
+}
+.calendarBtn
+{
+	border:none;
+	border-radius:50%;
+}

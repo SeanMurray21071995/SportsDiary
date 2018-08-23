@@ -1,0 +1,10 @@
+sports_diary\LogIn.class
+web_app_classes\SportsDiaryWebApp.class
+sports_diary\SportType.class
+sports_diary\Calender.class
+sports_diary\DiaryEntry.class
+web_app_classes\JAXActivation.class
+sports_diary\JavaDataBaseConnector.class
+sports_diary\Customer.class
+sports_diary\Account.class
+sports_diary\SignUp.class
