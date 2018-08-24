@@ -8,6 +8,9 @@ font-family:Impact, fantasy;
 .navigation
 {
 	background-color:#000000;
+	overflow:hidden;
+	height:50px;
+	width:100%;
 	
 }
 .navigation .button
@@ -32,6 +35,29 @@ margin:5px;
 background-color:#ff8533
 }
 .dropbtn
+{
+	width:300px;
+height:50px;
+border:none;
+margin:5px;
+color:#ffffff;
+background-color:#000000;
+}
+.dropbtn:hover .dropdown-content
+{
+	display:block;
+}
+.dropdown
+{
+	float:left;
+	overflow:hidden;
+}
+.dropdown-content
+{
+	display:none;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdownIteam
 {
 	width:300px;
 height:50px;
@@ -70,10 +96,7 @@ margin:5px;
 display:table;
 width:100%;
 }
-.dropdown-content
-{
-	display:none;
-}
+
 .show
 {
 	display:block;
