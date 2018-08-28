@@ -39,15 +39,12 @@ function logIn()
 		var info = request.response;
 		if(info.result =="true")
 		{
+			sessionStorage.logedIn=true;  
 			returnToHomePage();
 		}
 		else if(info.result =="false")
 		{
 			alert("username or password was incorect");
-		}
-		else
-		{
-			returnToHomePage();
 		}
 	}
 }
@@ -62,10 +59,10 @@ function createAccount()
 	else{
 		customerSend();
 		accountSend();
-	
-
-	//returnToHomePage();
-	}
+	    //returnToHomePage();
+		sessionStorage.logedIn=true;
+		sessionStorage.user=document.getElementById('emailAddress').value;
+		}
 }
 function customerSend()
 {

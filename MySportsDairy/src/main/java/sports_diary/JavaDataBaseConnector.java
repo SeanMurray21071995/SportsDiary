@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class JavaDataBaseConnector {
 	static private final String DBUrl ="jdbc:mysql://localhost/mydb?useSSL=false";
 	static private final String user ="root";
-	static private final String pass = "Password";
+	static private final String pass = "Password@1234";
 	private Connection con;
 	private Statement stat;
 	
